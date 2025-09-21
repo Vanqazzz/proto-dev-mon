@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package proto;
+
+import "google/protobuf/timestamp.proto";
+option go_package = "gen/go/devmon";
+service Devmon {
+    rpc ShowMetrics (ShowMetricsRequest) returns (ShowMetricsResponse);
+    rpc SendMetrics (SendMetricsRequest) returns (SendMetricsResponse);
+
+    rpc StreamMetrics (StreamMetricsRequest) returns (StreamMetricsResponse);
+}
+
+message ShowMetricsRequest {
+    string agent_id = 1;
+}
+
+
+message ShowMetricsResponse {
+    string agent_id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    double cpu_percent = 3;
+    uint64 ram_total = 4;
+    uint64 ram_used = 5;
+    double ram_percent = 6;
+    uint64  disk_total = 7;
+    uint64  disk_used = 8;
+    double disk_percent = 9;
+}
+
+
+
+
+message SendMetricsRequest {
+    string agent_id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    double cpu_percent = 3;
+    uint64 ram_total = 4;
+    uint64 ram_used = 5;
+    double ram_percent = 6;
+    uint64  disk_total = 7;
+    uint64  disk_used = 8;
+    double disk_percent = 9;
+}
+
+message SendMetricsResponse {
+    string status = 1;
+}
+
+
+
+message StreamMetricsRequest {
+    string agent_id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    double cpu_percent = 3;
+    uint64 ram_total = 4;
+    uint64 ram_used = 5;
+    double ram_percent = 6;
+    uint64  disk_total = 7;
+    uint64  disk_used = 8;
+    double disk_percent = 9;
+}
+
+message StreamMetricsResponse {
+    string status = 1;
+}
