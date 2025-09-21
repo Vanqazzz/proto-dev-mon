@@ -1,4 +1,4 @@
-module proto-dev-mon
+module github.com/Vanqazzz/proto-dev-mon
 
 go 1.24.2
 
