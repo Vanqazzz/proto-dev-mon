@@ -1,9 +1,12 @@
 syntax = "proto3";
 
-package proto;
+package devmon;
 
 import "google/protobuf/timestamp.proto";
-option go_package = "gen/go/devmon";
+
+
+option go_package = "a.devmon.v1;devmon1";
+
 service Devmon {
     rpc ShowMetrics (ShowMetricsRequest) returns (ShowMetricsResponse);
     rpc SendMetrics (SendMetricsRequest) returns (SendMetricsResponse);
@@ -30,7 +33,6 @@ message ShowMetricsResponse {
 
 
 
-
 message SendMetricsRequest {
     string agent_id = 1;
     google.protobuf.Timestamp timestamp = 2;
@@ -50,6 +52,10 @@ message SendMetricsResponse {
 
 
 message StreamMetricsRequest {
+    string status = 1;
+}
+
+message StreamMetricsResponse {
     string agent_id = 1;
     google.protobuf.Timestamp timestamp = 2;
     double cpu_percent = 3;
@@ -61,6 +67,3 @@ message StreamMetricsRequest {
     double disk_percent = 9;
 }
 
-message StreamMetricsResponse {
-    string status = 1;
-}

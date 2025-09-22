@@ -4,7 +4,7 @@
 // - protoc             v6.30.2
 // source: devmon.proto
 
-package devmon
+package devmon1
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Devmon_ShowMetrics_FullMethodName   = "/proto.Devmon/ShowMetrics"
-	Devmon_SendMetrics_FullMethodName   = "/proto.Devmon/SendMetrics"
-	Devmon_StreamMetrics_FullMethodName = "/proto.Devmon/StreamMetrics"
+	Devmon_ShowMetrics_FullMethodName   = "/devmon.Devmon/ShowMetrics"
+	Devmon_SendMetrics_FullMethodName   = "/devmon.Devmon/SendMetrics"
+	Devmon_StreamMetrics_FullMethodName = "/devmon.Devmon/StreamMetrics"
 )
 
 // DevmonClient is the client API for Devmon service.
@@ -176,7 +176,7 @@ func _Devmon_StreamMetrics_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Devmon_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Devmon",
+	ServiceName: "devmon.Devmon",
 	HandlerType: (*DevmonServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

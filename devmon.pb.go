@@ -4,7 +4,7 @@
 // 	protoc        v6.30.2
 // source: devmon.proto
 
-package devmon
+package devmon1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -328,15 +328,7 @@ func (x *SendMetricsResponse) GetStatus() string {
 
 type StreamMetricsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AgentId       string                 `protobuf:"bytes,1,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
-	Timestamp     *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-	CpuPercent    float64                `protobuf:"fixed64,3,opt,name=cpu_percent,json=cpuPercent,proto3" json:"cpu_percent,omitempty"`
-	RamTotal      uint64                 `protobuf:"varint,4,opt,name=ram_total,json=ramTotal,proto3" json:"ram_total,omitempty"`
-	RamUsed       uint64                 `protobuf:"varint,5,opt,name=ram_used,json=ramUsed,proto3" json:"ram_used,omitempty"`
-	RamPercent    float64                `protobuf:"fixed64,6,opt,name=ram_percent,json=ramPercent,proto3" json:"ram_percent,omitempty"`
-	DiskTotal     uint64                 `protobuf:"varint,7,opt,name=disk_total,json=diskTotal,proto3" json:"disk_total,omitempty"`
-	DiskUsed      uint64                 `protobuf:"varint,8,opt,name=disk_used,json=diskUsed,proto3" json:"disk_used,omitempty"`
-	DiskPercent   float64                `protobuf:"fixed64,9,opt,name=disk_percent,json=diskPercent,proto3" json:"disk_percent,omitempty"`
+	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -371,72 +363,24 @@ func (*StreamMetricsRequest) Descriptor() ([]byte, []int) {
 	return file_devmon_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *StreamMetricsRequest) GetAgentId() string {
+func (x *StreamMetricsRequest) GetStatus() string {
 	if x != nil {
-		return x.AgentId
+		return x.Status
 	}
 	return ""
 }
 
-func (x *StreamMetricsRequest) GetTimestamp() *timestamppb.Timestamp {
-	if x != nil {
-		return x.Timestamp
-	}
-	return nil
-}
-
-func (x *StreamMetricsRequest) GetCpuPercent() float64 {
-	if x != nil {
-		return x.CpuPercent
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetRamTotal() uint64 {
-	if x != nil {
-		return x.RamTotal
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetRamUsed() uint64 {
-	if x != nil {
-		return x.RamUsed
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetRamPercent() float64 {
-	if x != nil {
-		return x.RamPercent
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetDiskTotal() uint64 {
-	if x != nil {
-		return x.DiskTotal
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetDiskUsed() uint64 {
-	if x != nil {
-		return x.DiskUsed
-	}
-	return 0
-}
-
-func (x *StreamMetricsRequest) GetDiskPercent() float64 {
-	if x != nil {
-		return x.DiskPercent
-	}
-	return 0
-}
-
 type StreamMetricsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	AgentId       string                 `protobuf:"bytes,1,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
+	Timestamp     *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	CpuPercent    float64                `protobuf:"fixed64,3,opt,name=cpu_percent,json=cpuPercent,proto3" json:"cpu_percent,omitempty"`
+	RamTotal      uint64                 `protobuf:"varint,4,opt,name=ram_total,json=ramTotal,proto3" json:"ram_total,omitempty"`
+	RamUsed       uint64                 `protobuf:"varint,5,opt,name=ram_used,json=ramUsed,proto3" json:"ram_used,omitempty"`
+	RamPercent    float64                `protobuf:"fixed64,6,opt,name=ram_percent,json=ramPercent,proto3" json:"ram_percent,omitempty"`
+	DiskTotal     uint64                 `protobuf:"varint,7,opt,name=disk_total,json=diskTotal,proto3" json:"disk_total,omitempty"`
+	DiskUsed      uint64                 `protobuf:"varint,8,opt,name=disk_used,json=diskUsed,proto3" json:"disk_used,omitempty"`
+	DiskPercent   float64                `protobuf:"fixed64,9,opt,name=disk_percent,json=diskPercent,proto3" json:"disk_percent,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -471,18 +415,74 @@ func (*StreamMetricsResponse) Descriptor() ([]byte, []int) {
 	return file_devmon_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *StreamMetricsResponse) GetStatus() string {
+func (x *StreamMetricsResponse) GetAgentId() string {
 	if x != nil {
-		return x.Status
+		return x.AgentId
 	}
 	return ""
+}
+
+func (x *StreamMetricsResponse) GetTimestamp() *timestamppb.Timestamp {
+	if x != nil {
+		return x.Timestamp
+	}
+	return nil
+}
+
+func (x *StreamMetricsResponse) GetCpuPercent() float64 {
+	if x != nil {
+		return x.CpuPercent
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetRamTotal() uint64 {
+	if x != nil {
+		return x.RamTotal
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetRamUsed() uint64 {
+	if x != nil {
+		return x.RamUsed
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetRamPercent() float64 {
+	if x != nil {
+		return x.RamPercent
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetDiskTotal() uint64 {
+	if x != nil {
+		return x.DiskTotal
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetDiskUsed() uint64 {
+	if x != nil {
+		return x.DiskUsed
+	}
+	return 0
+}
+
+func (x *StreamMetricsResponse) GetDiskPercent() float64 {
+	if x != nil {
+		return x.DiskPercent
+	}
+	return 0
 }
 
 var File_devmon_proto protoreflect.FileDescriptor
 
 const file_devmon_proto_rawDesc = "" +
 	"\n" +
-	"\fdevmon.proto\x12\x05proto\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n" +
+	"\fdevmon.proto\x12\x06devmon\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n" +
 	"\x12ShowMetricsRequest\x12\x19\n" +
 	"\bagent_id\x18\x01 \x01(\tR\aagentId\"\xc3\x02\n" +
 	"\x13ShowMetricsResponse\x12\x19\n" +
@@ -512,8 +512,10 @@ const file_devmon_proto_rawDesc = "" +
 	"\tdisk_used\x18\b \x01(\x04R\bdiskUsed\x12!\n" +
 	"\fdisk_percent\x18\t \x01(\x01R\vdiskPercent\"-\n" +
 	"\x13SendMetricsResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"\xc4\x02\n" +
-	"\x14StreamMetricsRequest\x12\x19\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\".\n" +
+	"\x14StreamMetricsRequest\x12\x16\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\"\xc5\x02\n" +
+	"\x15StreamMetricsResponse\x12\x19\n" +
 	"\bagent_id\x18\x01 \x01(\tR\aagentId\x128\n" +
 	"\ttimestamp\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1f\n" +
 	"\vcpu_percent\x18\x03 \x01(\x01R\n" +
@@ -525,13 +527,11 @@ const file_devmon_proto_rawDesc = "" +
 	"\n" +
 	"disk_total\x18\a \x01(\x04R\tdiskTotal\x12\x1b\n" +
 	"\tdisk_used\x18\b \x01(\x04R\bdiskUsed\x12!\n" +
-	"\fdisk_percent\x18\t \x01(\x01R\vdiskPercent\"/\n" +
-	"\x15StreamMetricsResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status2\xe0\x01\n" +
-	"\x06Devmon\x12D\n" +
-	"\vShowMetrics\x12\x19.proto.ShowMetricsRequest\x1a\x1a.proto.ShowMetricsResponse\x12D\n" +
-	"\vSendMetrics\x12\x19.proto.SendMetricsRequest\x1a\x1a.proto.SendMetricsResponse\x12J\n" +
-	"\rStreamMetrics\x12\x1b.proto.StreamMetricsRequest\x1a\x1c.proto.StreamMetricsResponseB\x0fZ\rgen/go/devmonb\x06proto3"
+	"\fdisk_percent\x18\t \x01(\x01R\vdiskPercent2\xe6\x01\n" +
+	"\x06Devmon\x12F\n" +
+	"\vShowMetrics\x12\x1a.devmon.ShowMetricsRequest\x1a\x1b.devmon.ShowMetricsResponse\x12F\n" +
+	"\vSendMetrics\x12\x1a.devmon.SendMetricsRequest\x1a\x1b.devmon.SendMetricsResponse\x12L\n" +
+	"\rStreamMetrics\x12\x1c.devmon.StreamMetricsRequest\x1a\x1d.devmon.StreamMetricsResponseB\x15Z\x13a.devmon.v1;devmon1b\x06proto3"
 
 var (
 	file_devmon_proto_rawDescOnce sync.Once
@@ -547,24 +547,24 @@ func file_devmon_proto_rawDescGZIP() []byte {
 
 var file_devmon_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_devmon_proto_goTypes = []any{
-	(*ShowMetricsRequest)(nil),    // 0: proto.ShowMetricsRequest
-	(*ShowMetricsResponse)(nil),   // 1: proto.ShowMetricsResponse
-	(*SendMetricsRequest)(nil),    // 2: proto.SendMetricsRequest
-	(*SendMetricsResponse)(nil),   // 3: proto.SendMetricsResponse
-	(*StreamMetricsRequest)(nil),  // 4: proto.StreamMetricsRequest
-	(*StreamMetricsResponse)(nil), // 5: proto.StreamMetricsResponse
+	(*ShowMetricsRequest)(nil),    // 0: devmon.ShowMetricsRequest
+	(*ShowMetricsResponse)(nil),   // 1: devmon.ShowMetricsResponse
+	(*SendMetricsRequest)(nil),    // 2: devmon.SendMetricsRequest
+	(*SendMetricsResponse)(nil),   // 3: devmon.SendMetricsResponse
+	(*StreamMetricsRequest)(nil),  // 4: devmon.StreamMetricsRequest
+	(*StreamMetricsResponse)(nil), // 5: devmon.StreamMetricsResponse
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
 var file_devmon_proto_depIdxs = []int32{
-	6, // 0: proto.ShowMetricsResponse.timestamp:type_name -> google.protobuf.Timestamp
-	6, // 1: proto.SendMetricsRequest.timestamp:type_name -> google.protobuf.Timestamp
-	6, // 2: proto.StreamMetricsRequest.timestamp:type_name -> google.protobuf.Timestamp
-	0, // 3: proto.Devmon.ShowMetrics:input_type -> proto.ShowMetricsRequest
-	2, // 4: proto.Devmon.SendMetrics:input_type -> proto.SendMetricsRequest
-	4, // 5: proto.Devmon.StreamMetrics:input_type -> proto.StreamMetricsRequest
-	1, // 6: proto.Devmon.ShowMetrics:output_type -> proto.ShowMetricsResponse
-	3, // 7: proto.Devmon.SendMetrics:output_type -> proto.SendMetricsResponse
-	5, // 8: proto.Devmon.StreamMetrics:output_type -> proto.StreamMetricsResponse
+	6, // 0: devmon.ShowMetricsResponse.timestamp:type_name -> google.protobuf.Timestamp
+	6, // 1: devmon.SendMetricsRequest.timestamp:type_name -> google.protobuf.Timestamp
+	6, // 2: devmon.StreamMetricsResponse.timestamp:type_name -> google.protobuf.Timestamp
+	0, // 3: devmon.Devmon.ShowMetrics:input_type -> devmon.ShowMetricsRequest
+	2, // 4: devmon.Devmon.SendMetrics:input_type -> devmon.SendMetricsRequest
+	4, // 5: devmon.Devmon.StreamMetrics:input_type -> devmon.StreamMetricsRequest
+	1, // 6: devmon.Devmon.ShowMetrics:output_type -> devmon.ShowMetricsResponse
+	3, // 7: devmon.Devmon.SendMetrics:output_type -> devmon.SendMetricsResponse
+	5, // 8: devmon.Devmon.StreamMetrics:output_type -> devmon.StreamMetricsResponse
 	6, // [6:9] is the sub-list for method output_type
 	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
